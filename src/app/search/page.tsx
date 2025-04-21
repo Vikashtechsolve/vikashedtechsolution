@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 
@@ -140,7 +140,8 @@ const tutorials: Tutorial[] = [
   }
 ];
 
-export default function SearchResults() {
+// Search results component
+function SearchResults() {
   const searchParams = useSearchParams();
   const query = searchParams?.get('q') || '';
   const [results, setResults] = useState<any[]>([]);
@@ -190,61 +191,78 @@ export default function SearchResults() {
       }
     };
 
-    fetchResults();
+    if (query) {
+      fetchResults();
+    } else {
+      setResults([]);
+      setLoading(false);
+    }
   }, [query]);
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center min-h-[400px]">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-indigo-500"></div>
+      </div>
+    );
+  }
 
   if (!query) {
     return (
-      <div className="min-h-screen pt-20 pb-12 px-4">
-        <div className="container mx-auto max-w-4xl">
-          <h1 className="text-3xl font-bold text-gray-900 mb-8">Search</h1>
-          <p className="text-gray-600">Please enter a search term to find courses, tutorials, and more.</p>
-        </div>
+      <div className="text-center py-12">
+        <h2 className="text-2xl font-bold text-gray-800 mb-4">Search for Courses, Tutorials, and More</h2>
+        <p className="text-gray-600">Enter a search term to find content on CodersHub</p>
+      </div>
+    );
+  }
+
+  if (results.length === 0) {
+    return (
+      <div className="text-center py-12">
+        <h2 className="text-2xl font-bold text-gray-800 mb-4">No results found</h2>
+        <p className="text-gray-600">We couldn't find any matches for &quot;{query}&quot;</p>
+        <p className="text-gray-600 mt-2">Try different keywords or browse our categories</p>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen pt-20 pb-12 px-4">
-      <div className="container mx-auto max-w-4xl">
-        <h1 className="text-3xl font-bold text-gray-900 mb-8">
-          Search Results for "{query}"
-        </h1>
-
-        {loading ? (
-          <div className="flex justify-center items-center py-12">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-indigo-600"></div>
-          </div>
-        ) : results.length > 0 ? (
-          <div className="space-y-6">
-            {results.map((result) => (
-              <Link 
-                key={result.id} 
-                href={result.url}
-                className="block p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
-              >
-                <div className="flex items-start justify-between">
-                  <div>
-                    <h2 className="text-xl font-semibold text-gray-900 mb-2">
-                      {result.title}
-                    </h2>
-                    <p className="text-gray-600 mb-2">{result.description}</p>
-                    <span className="inline-block px-3 py-1 text-sm font-medium text-indigo-600 bg-indigo-100 rounded-full">
-                      {result.type}
-                    </span>
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
-        ) : (
-          <div className="text-center py-12">
-            <p className="text-gray-600 text-lg">
-              No results found for "{query}". Try different keywords or browse our courses and tutorials.
-            </p>
-          </div>
-        )}
+    <div className="space-y-6">
+      <h2 className="text-2xl font-bold text-gray-800">Search Results for &quot;{query}&quot;</h2>
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {results.map((result) => (
+          <Link 
+            key={result.id} 
+            href={result.url}
+            className="block p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow"
+          >
+            <div className="flex items-center mb-4">
+              <span className={`px-3 py-1 rounded-full text-xs font-medium ${
+                result.type === 'course' ? 'bg-blue-100 text-blue-800' : 'bg-green-100 text-green-800'
+              }`}>
+                {result.type === 'course' ? 'Course' : 'Tutorial'}
+              </span>
+            </div>
+            <h3 className="text-xl font-semibold text-gray-800 mb-2">{result.title}</h3>
+          </Link>
+        ))}
       </div>
+    </div>
+  );
+}
+
+// Main search page component
+export default function SearchPage() {
+  return (
+    <div className="container mx-auto px-4 py-12">
+      <h1 className="text-3xl font-bold text-gray-800 mb-8">Search</h1>
+      <Suspense fallback={
+        <div className="flex justify-center items-center min-h-[400px]">
+          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-indigo-500"></div>
+        </div>
+      }>
+        <SearchResults />
+      </Suspense>
     </div>
   );
 } 
