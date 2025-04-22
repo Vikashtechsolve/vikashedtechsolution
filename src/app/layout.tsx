@@ -12,8 +12,14 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Vikash Tech Solutions - Learn Coding the Right Way",
-  description: "Learn coding with practical exercises and real-world projects.",
+  title: "CodersHub",
+  description: "Learn coding with expert guidance",
+  icons: {
+    icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon.ico', type: 'image/x-icon' }
+    ]
+  }
 };
 
 export default function RootLayout({
