@@ -15,7 +15,7 @@ const courses = [
     instructor: "Vikash dubey",
     rating: 4.8,
     students: 1200,
-    duration: "48 hours",
+    duration: "8 Weeks",
     level: "Beginner to Advanced",
     price: 149,
     category: "Web Development",
@@ -30,7 +30,7 @@ const courses = [
     instructor: "Vikash dubey",
     rating: 4.9,
     students: 700,
-    duration: "36 hours",
+    duration: "8 Weeks",
     level: "Intermediate",
     price: 179,
     category: "Data Science",
@@ -45,7 +45,7 @@ const courses = [
     instructor: "Vikash dubey",
     rating: 4.7,
     students: 500,
-    duration: "24 hours",
+    duration: "8 Weeks",
     level: "Advanced",
     price: 129,
     category: "Web Development",
@@ -60,7 +60,7 @@ const courses = [
     instructor: "Vikash dubey",
     rating: 4.6,
     students: 620,
-    duration: "30 hours",
+    duration: "8 Weeks",
     level: "Intermediate",
     price: 159,
     category: "Mobile Development",
@@ -75,7 +75,7 @@ const courses = [
     instructor: "Vikash dubey",
     rating: 4.8,
     students: 530,
-    duration: "42 hours",
+    duration: "8 Weeks",
     level: "Intermediate to Advanced",
     price: 199,
     category: "DevOps",
@@ -90,7 +90,7 @@ const courses = [
     instructor: "Vikash dubey",
     rating: 4.7,
     students: 480,
-    duration: "28 hours",
+    duration: "8 Weeks",
     level: "Beginner to Intermediate",
     price: 149,
     category: "Cybersecurity",
@@ -105,7 +105,7 @@ const courses = [
     instructor: "Vikash dueby",
     rating: 4.9,
     students: 1200,
-    duration: "40 hours",
+    duration: "8 Weeks",
     level: "Intermediate",
     price: 169,
     category: "Web Development",
@@ -120,7 +120,7 @@ const courses = [
     instructor: "Viksh dubey",
     rating: 4.6,
     students: 410,
-    duration: "22 hours",
+    duration: "8 Weeks",
     level: "Beginner to Intermediate",
     price: 99,
     category: "Design",
@@ -334,7 +334,7 @@ export default function CoursesPage() {
                         <span className="text-amber-500 mr-1">₹</span> {course.price}
                       </div>
                       <Link 
-                        href={`/courses/${course.id}`}
+                        href={course.id === 2 ? '/courses/python-for-data-science-machine-learning' : `/courses/${course.title.toLowerCase().replace(/ /g, '-')}`}
                         className="bg-gradient-to-r from-amber-400 to-yellow-300 text-indigo-900 px-3 py-1.5 rounded-full text-sm font-semibold hover:from-amber-500 hover:to-yellow-400 transition-all duration-300"
                       >
                         View Course

@@ -12,14 +12,18 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "CodersHub",
+  title: {
+    default: "Vikash Tech Solution",
+    template: "%s | Vikash Tech Solution"
+  },
   description: "Learn coding with expert guidance",
-  icons: {
-    icon: [
-      { url: '/favicon.svg', type: 'image/svg+xml' },
-      { url: '/favicon.ico', type: 'image/x-icon' }
-    ]
-  }
+  icons: null,
+  themeColor: '#4F46E5',
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 1,
+  },
 };
 
 export default function RootLayout({
