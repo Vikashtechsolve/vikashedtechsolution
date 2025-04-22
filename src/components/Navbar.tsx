@@ -57,6 +57,7 @@ export default function Navbar() {
               <Link href="/tutorials" className={`${isScrolled ? 'text-gray-700 hover:text-indigo-600' : 'text-white hover:text-amber-300'} transition-all duration-300 font-medium`}>
                 Tutorials
               </Link>
+          
               <Link href="/blog" className={`${isScrolled ? 'text-gray-700 hover:text-indigo-600' : 'text-white hover:text-amber-300'} transition-all duration-300 font-medium`}>
                 Blog
               </Link>
@@ -66,6 +67,8 @@ export default function Navbar() {
               <Link href="/contact" className={`${isScrolled ? 'text-gray-700 hover:text-indigo-600' : 'text-white hover:text-amber-300'} transition-all duration-300 font-medium`}>
                 Contact
               </Link>
+
+            
             </div>
           </div>
 
@@ -143,6 +146,15 @@ export default function Navbar() {
               </Link>
               <Link href="/tutorials" className="text-gray-700 hover:text-indigo-600 transition-all duration-300 font-medium">
                 Tutorials
+              </Link>
+              <Link href="/web-development" className="text-gray-700 hover:text-indigo-600 transition-all duration-300 font-medium">
+                Web Development
+              </Link>
+              <Link href="/ai-ml" className="text-gray-700 hover:text-indigo-600 transition-all duration-300 font-medium">
+                AI & ML
+              </Link>
+              <Link href="/dsa" className="text-gray-700 hover:text-indigo-600 transition-all duration-300 font-medium">
+                DSA
               </Link>
               <Link href="/blog" className="text-gray-700 hover:text-indigo-600 transition-all duration-300 font-medium">
                 Blog
