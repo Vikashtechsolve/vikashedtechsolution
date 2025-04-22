@@ -143,7 +143,7 @@ export default function Home() {
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center mb-16">
             <h2 className="text-3xl font-bold text-center mb-12 bg-gradient-to-r from-amber-400 to-yellow-300 bg-clip-text text-transparent">Why Choose Vikash Tech Solutions?</h2>
-            <p className="text-gray-600 text-xl mb-8">
+            <p className=" text-amber-100 text-xl mb-8">
               Join thousands of students who have already transformed their careers with Vikash Tech Solutions.
             </p>
           </div>

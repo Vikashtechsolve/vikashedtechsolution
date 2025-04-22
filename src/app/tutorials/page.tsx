@@ -241,16 +241,17 @@ export default function TutorialsPage() {
             </div>
             
             <div className="flex items-center space-x-2">
-              <span className="font-medium text-gray-700">Sort by:</span>
+              <span className="font-medium text-indigo-600">Sort by:</span>
               <select 
                 title="Sort tutorials by"
-                className="px-3 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="px-3 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-indigo-600"
                 value={activeFilter}
                 onChange={(e) => setActiveFilter(e.target.value)}
               >
-                <option value="all">All Tutorials</option>
-                <option value="featured">Featured</option>
-                <option value="newest">Newest</option>
+                <option value="all" className="text-indigo-600">All Tutorials</option>
+                <option value="popular" className="text-indigo-600">Most Popular</option>
+                <option value="recent" className="text-indigo-600">Most Recent</option>
+                <option value="bookmarked" className="text-indigo-600">Bookmarked</option>
               </select>
             </div>
           </div>
@@ -267,7 +268,7 @@ export default function TutorialsPage() {
           ) : filteredTutorials.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {filteredTutorials.map((tutorial) => (
-                <div key={tutorial.id} className="bg-white/80 backdrop-blur-sm rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                <div key={tutorial.id} className="bg-white/80 backdrop-blur-sm rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 flex flex-col h-full">
                   <Link href={`/tutorials/${tutorial.slug}`} className="block">
                     <div className={`relative h-48 ${tutorial.slug === 'mysql-tutorial' ? 'bg-white' : 'bg-gray-100'}`}>
                       <img
@@ -285,14 +286,14 @@ export default function TutorialsPage() {
                       />
                     </div>
                   </Link>
-                  <div className="p-6">
+                  <div className="p-6 flex flex-col flex-grow">
                     <h2 className="text-2xl font-bold text-gray-900 mb-2">{tutorial.title}</h2>
-                    <p className="text-gray-600 mb-4">{tutorial.description}</p>
+                    <p className="text-gray-600 mb-4 flex-grow">{tutorial.description}</p>
                     <Link
                       href={`/tutorials/${tutorial.slug}`}
-                      className="inline-flex items-center text-purple-600 hover:text-purple-700 font-medium"
+                      className="inline-flex items-center text-purple-600 hover:text-purple-700 font-medium whitespace-nowrap mt-auto"
                     >
-                      Start Learning
+                      <span>Start Learning</span>
                       <FaArrowRight className="ml-2" />
                     </Link>
                   </div>

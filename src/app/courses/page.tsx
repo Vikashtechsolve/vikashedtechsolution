@@ -12,9 +12,9 @@ const courses = [
     title: "Complete Web Development Bootcamp",
     description: "Master HTML, CSS, JavaScript, React, Node.js, and MongoDB in one comprehensive course.",
     image: "/course-web-dev.jpg",
-    instructor: "John Doe",
+    instructor: "Vikash dubey",
     rating: 4.8,
-    students: 12500,
+    students: 1200,
     duration: "48 hours",
     level: "Beginner to Advanced",
     price: 149,
@@ -27,9 +27,9 @@ const courses = [
     title: "Python for Data Science & Machine Learning",
     description: "Learn Python programming, data analysis, visualization, and machine learning algorithms.",
     image: "/course-python.jpg",
-    instructor: "Jane Smith",
+    instructor: "Vikash dubey",
     rating: 4.9,
-    students: 9800,
+    students: 700,
     duration: "36 hours",
     level: "Intermediate",
     price: 179,
@@ -42,9 +42,9 @@ const courses = [
     title: "Advanced React & Redux Masterclass",
     description: "Build scalable React applications with Redux, hooks, and advanced patterns.",
     image: "/course-react.jpg",
-    instructor: "Mike Johnson",
+    instructor: "Vikash dubey",
     rating: 4.7,
-    students: 7500,
+    students: 500,
     duration: "24 hours",
     level: "Advanced",
     price: 129,
@@ -57,9 +57,9 @@ const courses = [
     title: "Mobile App Development with React Native",
     description: "Create cross-platform mobile applications for iOS and Android using React Native.",
     image: "/course-mobile.jpg",
-    instructor: "Sarah Williams",
+    instructor: "Vikash dubey",
     rating: 4.6,
-    students: 6200,
+    students: 620,
     duration: "30 hours",
     level: "Intermediate",
     price: 159,
@@ -72,9 +72,9 @@ const courses = [
     title: "DevOps & Cloud Computing",
     description: "Learn Docker, Kubernetes, AWS, and CI/CD pipelines for modern development.",
     image: "/course-devops.jpg",
-    instructor: "David Brown",
+    instructor: "Vikash dubey",
     rating: 4.8,
-    students: 5300,
+    students: 530,
     duration: "42 hours",
     level: "Intermediate to Advanced",
     price: 199,
@@ -87,9 +87,9 @@ const courses = [
     title: "Cybersecurity Fundamentals",
     description: "Master the basics of cybersecurity, ethical hacking, and network security.",
     image: "/course-security.jpg",
-    instructor: "Emily Davis",
+    instructor: "Vikash dubey",
     rating: 4.7,
-    students: 4800,
+    students: 480,
     duration: "28 hours",
     level: "Beginner to Intermediate",
     price: 149,
@@ -102,9 +102,9 @@ const courses = [
     title: "Full-Stack Development with MERN Stack",
     description: "Build complete web applications with MongoDB, Express, React, and Node.js.",
     image: "/course-mern.jpg",
-    instructor: "Alex Thompson",
+    instructor: "Vikash dueby",
     rating: 4.9,
-    students: 8900,
+    students: 1200,
     duration: "40 hours",
     level: "Intermediate",
     price: 169,
@@ -117,9 +117,9 @@ const courses = [
     title: "UI/UX Design for Developers",
     description: "Learn to create beautiful, user-friendly interfaces and improve user experience.",
     image: "/course-uiux.jpg",
-    instructor: "Lisa Chen",
+    instructor: "Viksh dubey",
     rating: 4.6,
-    students: 4100,
+    students: 410,
     duration: "22 hours",
     level: "Beginner to Intermediate",
     price: 99,
@@ -253,18 +253,18 @@ export default function CoursesPage() {
             </div>
             
             <div className="flex items-center space-x-2">
-              <span className="font-medium text-gray-700">Sort by:</span>
+              <span className="font-medium text-indigo-600">Sort by:</span>
               <select 
-                title="Sort by"
-                className="px-3 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                title="Sort courses by"
+                className="px-3 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-indigo-600"
                 value={activeFilter}
                 onChange={(e) => setActiveFilter(e.target.value)}
               >
-                <option value="all">All Courses</option>
-                <option value="popular">Most Popular</option>
-                <option value="recent">Most Recent</option>
-                <option value="price-low">Price: Low to High</option>
-                <option value="price-high">Price: High to Low</option>
+                <option value="all" className="text-indigo-600">All Courses</option>
+                <option value="newest" className="text-indigo-600">Newest</option>
+                <option value="popular" className="text-indigo-600">Most Popular</option>
+                <option value="price-low" className="text-indigo-600">Price: Low to High</option>
+                <option value="price-high" className="text-indigo-600">Price: High to Low</option>
               </select>
             </div>
           </div>
