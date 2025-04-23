@@ -74,8 +74,8 @@ export default function Home() {
             />
             <VideoCard
               videoSrc="/Images/AI&ML.mp4"
-              title="AI & ML"
-              description="Master Python, data analysis, machine learning and artificial intelligence with hands-on projects."
+              title="Programming Language"
+              description="Master Python, Java, C++, C, JavaScript, and more with hands-on projects."
               link="/ai-ml"
             />
             <VideoCard

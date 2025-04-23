@@ -3,8 +3,8 @@ import Link from 'next/link';
 import { FaCheck, FaClock, FaCode, FaGraduationCap, FaLaptopCode, FaMobileAlt, FaProjectDiagram, FaStar, FaUsers } from 'react-icons/fa';
 
 export const metadata: Metadata = {
-  title: 'Complete Web Development Bootcamp | Vikash Tech Solution',
-  description: 'Master full-stack web development with our comprehensive bootcamp. Learn HTML, CSS, JavaScript, React, Node.js, and more.',
+  title: "Complete Web Development Bootcamp",
+  description: "Master web development from scratch with our comprehensive bootcamp. Learn HTML, CSS, JavaScript, React, and more.",
 };
 
 export default function CompleteWebDevelopmentBootcamp() {

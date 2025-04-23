@@ -11,18 +11,25 @@ const inter = Inter({
   display: "swap",
 });
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+};
+
 export const metadata: Metadata = {
   title: {
     default: "Vikash Tech Solution",
     template: "%s | Vikash Tech Solution"
   },
   description: "Learn coding with expert guidance",
-  icons: null,
-  themeColor: '#4F46E5',
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 1,
+  icons: {
+    icon: [
+      {
+        url: './icon.tsx',
+        type: 'image/png',
+      },
+    ],
   },
 };
 
