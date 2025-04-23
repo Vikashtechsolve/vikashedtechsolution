@@ -63,7 +63,8 @@ const tutorials = [
     slug: "java-tutorial",
     category: "Programming",
     featured: false,
-    createdAt: "2024-03-10"
+    createdAt: "2024-03-10",
+    link: "/tutorials/java-tutorial"
   },
   {
     id: 7,
